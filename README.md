@@ -23,8 +23,8 @@ This is a mini-project from the [JavaScript Tutorial Full Course - Beginner to P
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/ernur-burshak/JS-calculator)
-- Live Site URL: [Add live site URL here](https://ernur-burshak.github.io/JS-calculator/)
+- Solution URL: [Add solution URL here](https://github.com/ernur-burshak/game-Rock-Paper-Scissors)
+- Live Site URL: [Add live site URL here](https://ernur-burshak.github.io/game-Rock-Paper-Scissors/)
 
 ## My process
 
@@ -32,37 +32,43 @@ This is a mini-project from the [JavaScript Tutorial Full Course - Beginner to P
 
 - Semantic HTML5 markup
 - CSS custom properties
-- JS
+- JS event, button and key interactions
+- JS advanced functions
 
 ### What I learned
 
-```html
-<button
-  class="calculator-button gray-button"
-  onclick="
-  updateCalculation('1');
-"
->
-  1
-</button>
+```js
+document.querySelector(".js-auto-play-button").addEventListener("click", () => {
+  autoPlay();
+});
 ```
 
 ```js
-let calculation = localStorage.getItem("calculation") || "0";
-localStorage.setItem("calculation", calculation);
+setInterval(() => {
+  const playerMove = pickComputerMove();
+  playGame(playerMove);
+}, 1000);
 ```
 
 ```js
-eval(calculation);
-```
-
-```js
-let lastNumber = calculation.split(/[\+\-\*\/]/).pop();
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    playGame("Rock");
+  } else if (event.key === "p") {
+    playGame("Paper");
+  } else if (event.key === "s") {
+    playGame("Scissors");
+  } else if (event.key === "a") {
+    autoPlay();
+  } else if (event.key === "Backspace") {
+    showResetConfirmation();
+  }
+});
 ```
 
 ### Continued development
 
-In the future, I want to be fluent in the JS programming language, and use it confidently for DOM.
+In the future, I want to work on a big project.
 
 ### Useful resources
 
@@ -71,7 +77,7 @@ In the future, I want to be fluent in the JS programming language, and use it co
 
 ## Author
 
-- Website - [Ernur](https://ernur-burshak.github.io/JS-calculator/)
+- Website - [Ernur](https://ernur-burshak.github.io/game-Rock-Paper-Scissors/)
 
 ## Acknowledgments
 
